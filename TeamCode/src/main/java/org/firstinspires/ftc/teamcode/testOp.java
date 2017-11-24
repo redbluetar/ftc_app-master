@@ -30,6 +30,7 @@
 package org.firstinspires.ftc.teamcode;
 
 
+import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 
 import com.qualcomm.robotcore.hardware.DcMotor;
@@ -51,7 +52,7 @@ import com.qualcomm.robotcore.util.Range;
  * Remove or comment out the @Disabled line to add this opmode to the Driver Station OpMode list
  */
 
-
+@Autonomous(name = "testOp")
 public class testOp extends LinearOpMode{
     DcMotor leftDrive1;
     DcMotor leftDrive2;
@@ -84,6 +85,24 @@ public class testOp extends LinearOpMode{
 
         leftClamp.setPosition(0);
         rightClamp.setPosition(1.0);
+
+        ElapsedTime eTime = new ElapsedTime();
+
+        eTime.reset();
+
+        while(eTime.time()< 2.5){}
+
+        leftDrive1.setPower(0);
+        leftDrive2.setPower(0);
+        rightDrive1.setPower(0);
+        rightDrive2.setPower(0);
+
+        leftClamp.setPosition(1.0);
+        rightClamp.setPosition(0);
+
+        eTime.reset();
+
+        while(eTime.time()< 2.5){}
     }
 }
 
