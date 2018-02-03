@@ -30,19 +30,12 @@
 package org.firstinspires.ftc.teamcode;
 
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
-import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
-import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.CRServo;
 import com.qualcomm.robotcore.hardware.ColorSensor;
 import com.qualcomm.robotcore.hardware.DcMotor;
-import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.util.ElapsedTime;
-import com.qualcomm.robotcore.util.Range;
-
-import org.firstinspires.ftc.robotcontroller.external.samples.SensorColor;
-import org.firstinspires.ftc.robotcontroller.external.samples.SensorREVColorDistance;
 
 
 /**
@@ -58,8 +51,8 @@ import org.firstinspires.ftc.robotcontroller.external.samples.SensorREVColorDist
  * Remove or comment out the @Disabled line to add this opmode to the Driver Station OpMode list
  */
 
-@Autonomous(name="BlueAutonomous", group="Linear Opmode")
-public class BlueAutonomous extends LinearOpMode {
+@Autonomous(name="RedAutonomous", group="Linear Opmode")
+public class RedAutonomous extends LinearOpMode {
 
     // Declare OpMode members.
     private ElapsedTime runtime = new ElapsedTime();
@@ -96,9 +89,9 @@ public class BlueAutonomous extends LinearOpMode {
 
 
         identifyJewel.enableLed(true);
-        if(identifyJewel.red() > identifyJewel.blue()) {
+        if(identifyJewel.red() < identifyJewel.blue()) {
             jewelKnocker.setPosition(1);
-        }else if (identifyJewel.blue() > identifyJewel.red()){
+        }else if (identifyJewel.blue() < identifyJewel.red()){
             jewelKnocker.setPosition(-1);
         }else{
             jewelKnocker.setPosition(0);

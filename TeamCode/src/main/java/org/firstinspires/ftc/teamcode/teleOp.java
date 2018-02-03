@@ -200,8 +200,13 @@ public class teleOp extends OpMode
             leftLift.setPower(0);
         }
 
-
-        knockerBase.setPower(0);
+        if (gamepad1.x){
+            knockerBase.setPower(.45);
+        }else if (gamepad1.y){
+            knockerBase.setPower(.55);
+        } else{
+            knockerBase.setPower(0);
+        }
 
 
 //        String colorInFront = "";
@@ -222,7 +227,7 @@ public class teleOp extends OpMode
 //        telemetry.addData("Hue: ", identifyJewel.argb());
 //        telemetry.addData("Color Identified:", colorInFront);
 //        telemetry.addData("Servo Position: ", knockerBase.getPower());
-
+        telemetry.addData("Knocker Position: ", knockerBase.getPower());
     }
 
     /*
